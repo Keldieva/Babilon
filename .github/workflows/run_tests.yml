@@ -1,0 +1,17 @@
+name: Run Babilon_M Tests
+
+on: push
+#  push:
+#    branches: [main]
+#  pull_request:
+#    branches: [main]
+   
+   
+jobs:
+ test_project:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v2
+   - name: Run Auto Tests with pytest
+     run: |
+       poetry install
