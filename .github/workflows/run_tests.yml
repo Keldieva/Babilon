@@ -14,4 +14,6 @@ jobs:
    - uses: actions/checkout@v2
    - name: Run Auto Tests with pytest
      run: |
-       poetry install
+       python -m pip install --upgrade pip
+
+       
