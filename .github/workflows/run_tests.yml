@@ -28,12 +28,15 @@ jobs:
   testing:
    runs-on: ubuntu-latest
    steps:
-     - uses: actions/checkout@v3
-     - name: Install poetry
-       run: pipx install poetry
-     - uses: actions/setup-python@v4
-       with:
-        python-version: '3.9'
-        cache: 'poetry'
-     - run: poetry install
-     - run: poetry run pytest
+     - name: actions-pytest
+       uses: xoviat/actions-pytest@0.1-alpha2
+
+#      - uses: actions/checkout@v3
+#      - name: Install poetry
+#        run: pipx install poetry
+#      - uses: actions/setup-python@v4
+#        with:
+#         python-version: '3.9'
+#         cache: 'poetry'
+#      - run: poetry install
+#      - run: poetry run pytest
