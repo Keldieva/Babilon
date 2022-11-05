@@ -1,29 +1,29 @@
 name: Run Babilon_M Tests
-
 on:
- push:
-   branches: [main]
- pull_request:
-   branches: [main]
-   
-   
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
 jobs:
- job1:
-   name: First Job
-   runs-on: ubuntu-latest
-   steps:
-   - uses: actions/checkout@v2
-   - uses: actions/setup-python@v1
-     with:
-       python-version: 3.8
-   - uses: Gr1N/setup-poetry@v7
-   - run: poetry --version
- job2:
-   name: Second Job
-   runs-on: ubuntu-latest
-   steps:
-   - uses: actions/checkout@v2
-   - name: Run Auto Tests with pytest
-     run: |
-       python -m pip install --upgrade pip
-       
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Black
+        uses: dciborow/pyaction@0.0.13
+        with:
+          black: true
+
+      - name: Flake8
+        uses: dciborow/pyaction@0.0.13
+        with:          
+          flake8: true
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:    
+      - name: Pytest
+        uses: dciborow/pyaction@0.0.13
+        with:          
+          testing: true
