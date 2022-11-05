@@ -10,20 +10,16 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - name: Black
-        uses: dciborow/pyaction@0.0.13
-        with:
-          black: true
+      - name: Python Actions Collection
+        uses: microsoft/action-python@0.2.0
 
-      - name: Flake8
-        uses: dciborow/pyaction@0.0.13
-        with:          
-          flake8: true
 
   testing:
     runs-on: ubuntu-latest
     steps:    
-      - name: Pytest
-        uses: dciborow/pyaction@0.0.13
-        with:          
-          testing: true
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+         python-version: 3.8
+      - uses: Gr1N/setup-poetry@v7
+      - run: poetry --version
