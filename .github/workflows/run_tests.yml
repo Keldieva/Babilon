@@ -25,11 +25,11 @@ jobs:
       - run: poetry --version
       
   
-  testing:
-   runs-on: ubuntu-latest
-   steps:
-     - name: actions-pytest
-       uses: xoviat/actions-pytest@0.1-alpha2
+#   testing:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: actions-pytest
+#        uses: xoviat/actions-pytest@0.1-alpha2
 
 #      - uses: actions/checkout@v3
 #      - name: Install poetry
